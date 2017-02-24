@@ -1,0 +1,6 @@
+<div class="page-header">
+    Created&nbsp;<?= $this->article->getCreated()->format('Y-m-d H:i:s') ?>
+    <a href="<?= $this->url('article', ['action' => 'edit', 'id' => $this->article->getId()]) ?>">Edit</a>
+</div>
+<h2><?= $this->article->getTitle() ?></h2>
+<h4><?= $this->article->getContent() ?></h4>

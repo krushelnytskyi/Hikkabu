@@ -1,0 +1,19 @@
+<a href="<?= $this->url('article', ['action' => 'create']) ?>">Create article</a>
+<hr>
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Created</th>
+        <th>Actions</th>
+    </tr>
+    <?php foreach ($this->articles as $article) : ?>
+        <?php /** @var \Application\Model\Article $article */ ?>
+        <tr>
+            <td><?= $article->getId() ?></td>
+            <td><a href="<?= $this->url('article', ['action' => 'show', 'id' => $article->getId()]) ?>"><?= $article->getTitle() ?></a></td>
+            <td><?= $article->getCreated()->format('Y-m-d H:i:s') ?></td>
+            <td><a href="<?= $this->url('article', ['action' => 'delete', 'id' => $article->getId()]) ?>">Delete</a></td>
+        </tr>
+    <?php endforeach; ?>
+</table>

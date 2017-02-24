@@ -1,0 +1,21 @@
+<form action="<?= $this->action ?>" method="post">
+    <?php if (true === isset($this->article)) : ?>
+        <input type="hidden" name="id" value="<?= $this->article->getId() ?>">
+    <?php endif; ?>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input
+                type="text"
+                name="title"
+                id="title"
+                class="form-control"
+                value="<?= isset($this->article) ? $this->article->getTitle() : '' ?>"
+        >
+    </div>
+    <div class="form-group">
+        <label for="title">Content</label>
+        <textarea name="content" id="title" class="form-control"><?= isset($this->article) ? $this->article->getContent() : '' ?></textarea>
+    </div>
+
+    <button>Save</button>
+</form>

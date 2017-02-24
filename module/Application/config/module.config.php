@@ -33,13 +33,24 @@ return [
                         'action'     => 'login'
                     ]
                 ]
+            ],
+            'article' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/article[/:action][/:id]',
+                    'defaults' => [
+                        'controller' => Controller\ArticleController::class,
+                        'action' => 'index'
+                    ]
+                ]
             ]
         ],
     ],
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
-            Controller\UserController::class => InvokableFactory::class
+            Controller\UserController::class => InvokableFactory::class,
+            Controller\ArticleController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
